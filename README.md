@@ -1,6 +1,6 @@
 # IsThatPrime 🔢
 
-Un programma semplice in C++ per verificare se un numero è primo, con spiegazioni matematiche dettagliate e istruzioni passo-passo.
+Un programma semplice in C++ per verificare se un numero è primo, con spiegazioni matematiche dettagliate nel file README.
 
 ---
 
@@ -33,7 +33,7 @@ Un **numero primo** è un numero:
 ### Prerequisiti
 - Un compilatore C++:
   - **Windows**: Installa [Dev-C++](https://sourceforge.net/projects/orwelldevcpp/) o [Code::Blocks](https://www.codeblocks.org/).
-  - **macOS/Linux**: Usa `g++` (già installato o installalo con `sudo apt install g++` su Linux).
+  - **macOS/Linux**: Usa `g++` (già installato o installalo con `sudo apt install g++` su Ubuntu).
 
 ### Istruzioni
 1. **Scarica il codice**:
@@ -42,7 +42,7 @@ Un **numero primo** è un numero:
    cd IsThatPrime
    ```
 
-2. **Compila**:
+2. **Compila (macOS/Linux)**:
    ```bash
    g++ src/main.cpp -o isthatprime
    ```

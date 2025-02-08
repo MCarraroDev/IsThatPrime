@@ -4,7 +4,7 @@ Un programma semplice in C++ per verificare se un numero è primo, con spiegazio
 
 ---
 
-## Indice 📑
+## 📖 Indice
 - [Cosa è un numero primo?](#-cosa-è-un-numero-primo)
 - [Come Compilare ed Eseguire](#-come-compilare-ed-eseguire)
 - [Spiegazione Matematica Completa](#-spiegazione-matematica-completa)
@@ -31,28 +31,77 @@ Un **numero primo** è un numero:
 ## 🛠 Come Compilare ed Eseguire
 
 ### Prerequisiti
-- Un compilatore C++:
+- Un compilatore C++ moderno (C++17 o superiore):
   - **Windows**: Installa [Dev-C++](https://sourceforge.net/projects/orwelldevcpp/) o [Code::Blocks](https://www.codeblocks.org/).
   - **macOS/Linux**: Usa `g++` (già installato o installalo con `sudo apt install g++` su Ubuntu).
 
-### Istruzioni
+### Istruzioni Dettagliate
+
 1. **Scarica il codice**:
    ```bash
+   # Clona il repository
    git clone https://github.com/MCarraroDev/IsThatPrime.git
+   
+   # Entra nella directory
    cd IsThatPrime
    ```
 
-2. **Compila (macOS/Linux)**:
+2. **Compila gli algoritmi**:
    ```bash
-   g++ src/main.cpp -o isthatprime
+   # Metodo base (divisione per tentativi)
+   g++ src/main.cpp -o isthatprime_base
+   
+   # Metodo Wheel Factorization (più veloce per numeri medi)
+   g++ src/algorithms/wheel_factorization.cpp -o isthatprime_wheel
+   
+   # Metodo Miller-Rabin (il più veloce per numeri grandi)
+   g++ src/algorithms/miller_rabin.cpp -o isthatprime_miller
+   
+   # Oppure compila tutto in un colpo solo:
+   g++ src/main.cpp -o isthatprime_base && \
+   g++ src/algorithms/wheel_factorization.cpp -o isthatprime_wheel && \
+   g++ src/algorithms/miller_rabin.cpp -o isthatprime_miller
    ```
 
-3. **Esegui**:
-   - **Windows**: Clicca su `isthatprime.exe`
+3. **Esegui gli algoritmi**:
+   - **Windows**: Clicca su uno dei file `.exe` creati
    - **macOS/Linux**:
      ```bash
-     ./isthatprime
+     # Metodo base
+     ./isthatprime_base
+     
+     # Wheel Factorization
+     ./isthatprime_wheel
+     
+     # Miller-Rabin
+     ./isthatprime_miller
      ```
+
+### Confronto degli Algoritmi
+
+1. **Metodo Base** (`isthatprime_base`)
+   - Algoritmo più semplice e intuitivo
+   - Divide per tutti i numeri dispari fino alla radice quadrata
+   - Ottimo per numeri piccoli e per scopi didattici
+
+2. **Wheel Factorization** (`isthatprime_wheel`)
+   - Usa una "ruota" di numeri da saltare
+   - Controlla solo i possibili divisori primi
+   - Più veloce del metodo base per numeri medi
+
+3. **Miller-Rabin** (`isthatprime_miller`)
+   - Test probabilistico ma DETERMINISTICO fino a 2⁶⁴
+   - Estremamente veloce per numeri grandi
+   - Usato in applicazioni crittografiche
+
+### Esempio di Confronto
+Prova questo numero grande: `1234567890123456789`
+```bash
+# Esegui tutti e tre gli algoritmi e confronta i tempi:
+ time ./isthatprime_base
+ time ./isthatprime_wheel
+ time ./isthatprime_miller
+```
 
 ## 🧠 Spiegazione Matematica Completa
 

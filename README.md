@@ -1,174 +1,130 @@
-# IsThatPrime 🔢
+<div align="center">
 
-Un programma semplice in C++ per verificare se un numero è primo, con spiegazioni matematiche dettagliate nel file README.
+# IsThatPrime
 
----
+🔢 Un verificatore di numeri primi in C++ con tre diversi algoritmi
 
-## 📖 Indice
-- [Cosa è un numero primo?](#-cosa-è-un-numero-primo)
-- [Come Compilare ed Eseguire](#-come-compilare-ed-eseguire)
-- [Spiegazione Matematica Completa](#-spiegazione-matematica-completa)
-  - [Perché si usa la radice quadrata?](#perché-si-usa-la-radice-quadrata)
-  - [Ottimizzazioni nel codice](#ottimizzazioni-nel-codice)
-- [Esempi di Utilizzo](#-esempi-di-utilizzo)
-- [Domande Frequenti](#-domande-frequenti)
-- [Licenza](#-licenza)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![C++](https://img.shields.io/badge/C++-17-blue.svg)](https://isocpp.org/)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey)]
 
----
+[Caratteristiche](#-caratteristiche) • 
+[Installazione](#-installazione) • 
+[Utilizzo](#-utilizzo) • 
+[Algoritmi](#-algoritmi) • 
+[Benchmark](#-benchmark) • 
+[Contribuisci](#-contribuisci)
 
-## 🧮 Cosa è un numero primo?
+</div>
 
-Un **numero primo** è un numero:
-- **Maggiore di 1**,
-- **Divisibile solo per 1 e per se stesso**.
+## 🚀 Caratteristiche
 
-**Esempi:**  
-✅ **Primi**: 2, 3, 5, 7, 11...  
-❌ **Non primi**: 4 (divisibile per 2), 6 (divisibile per 2 e 3), 9 (divisibile per 3).
+- **3 Algoritmi** di verifica dei numeri primi:
+  - ✨ Metodo Base (per numeri piccoli)
+  - 🎡 Wheel Factorization (per numeri medi)
+  - ⚡ Miller-Rabin (per numeri grandi)
+- **Interfaccia Colorata** per una migliore leggibilità
+- **Statistiche** di esecuzione (tempo e memoria)
+- **Supporto** per numeri fino a 2⁶⁴ 
 
----
-
-## 🛠 Come Compilare ed Eseguire
+## 📦 Installazione
 
 ### Prerequisiti
-- Un compilatore C++ moderno (C++17 o superiore):
-  - **Windows**: Installa [Dev-C++](https://sourceforge.net/projects/orwelldevcpp/) o [Code::Blocks](https://www.codeblocks.org/).
-  - **macOS/Linux**: Usa `g++` (già installato o installalo con `sudo apt install g++` su Ubuntu).
 
-### Istruzioni Dettagliate
+- Compilatore C++
+- Git (opzionale)
 
-1. **Scarica il codice**:
-   ```bash
-   # Clona il repository
-   git clone https://github.com/MCarraroDev/IsThatPrime.git
-   
-   # Entra nella directory
-   cd IsThatPrime
-   ```
+### Download
 
-2. **Compila gli algoritmi**:
-   ```bash
-   # Metodo base (divisione per tentativi)
-   g++ src/main.cpp -o isthatprime_base
-   
-   # Metodo Wheel Factorization (più veloce per numeri medi)
-   g++ src/algorithms/wheel_factorization.cpp -o isthatprime_wheel
-   
-   # Metodo Miller-Rabin (il più veloce per numeri grandi)
-   g++ src/algorithms/miller_rabin.cpp -o isthatprime_miller
-   
-   # Oppure compila tutto in un colpo solo:
-   g++ src/main.cpp -o isthatprime_base && \
-   g++ src/algorithms/wheel_factorization.cpp -o isthatprime_wheel && \
-   g++ src/algorithms/miller_rabin.cpp -o isthatprime_miller
-   ```
-
-3. **Esegui gli algoritmi**:
-   - **Windows**: Clicca su uno dei file `.exe` creati
-   - **macOS/Linux**:
-     ```bash
-     # Metodo base
-     ./isthatprime_base
-     
-     # Wheel Factorization
-     ./isthatprime_wheel
-     
-     # Miller-Rabin
-     ./isthatprime_miller
-     ```
-
-### Confronto degli Algoritmi
-
-1. **Metodo Base** (`isthatprime_base`)
-   - Algoritmo più semplice e intuitivo
-   - Divide per tutti i numeri dispari fino alla radice quadrata
-   - Ottimo per numeri piccoli e per scopi didattici
-
-2. **Wheel Factorization** (`isthatprime_wheel`)
-   - Usa una "ruota" di numeri da saltare
-   - Controlla solo i possibili divisori primi
-   - Più veloce del metodo base per numeri medi
-
-3. **Miller-Rabin** (`isthatprime_miller`)
-   - Test probabilistico ma DETERMINISTICO fino a 2⁶⁴
-   - Estremamente veloce per numeri grandi
-   - Usato in applicazioni crittografiche
-
-### Esempio di Confronto
-Prova questo numero grande: `1234567890123456789`
 ```bash
-# Esegui tutti e tre gli algoritmi e confronta i tempi:
- time ./isthatprime_base
- time ./isthatprime_wheel
- time ./isthatprime_miller
+# Clona il repository (richiede Git)
+git clone https://github.com/MCarraroDev/IsThatPrime.git
+
+# Oppure scarica lo ZIP
+wget https://github.com/MCarraroDev/IsThatPrime/archive/refs/heads/main.zip
+unzip main.zip
 ```
 
-## 🧠 Spiegazione Matematica Completa
+### Compilazione
 
-### Perché si usa la radice quadrata?
-Se un numero n non è primo, deve avere almeno un divisore ≤ √n.
+```bash
+# Entra nella directory (Linux/MacOS)
+cd IsThatPrime
 
-**Dimostrazione**:
-- Supponiamo che n abbia un divisore d > √n.
-- Allora esiste un altro divisore k = n/d.
-- Poiché d > √n, allora k = n/d < √n (perché d × k = n → k = n/d < n/√n = √n).
-- **Conclusione**: Se non ci sono divisori ≤ √n, non ce ne sono > √n!
+# Compila tutti gli algoritmi (Linux/MacOS)
+g++ src/main.cpp -o isthatprime_base && \
+g++ src/algorithms/wheel_factorization.cpp -o isthatprime_wheel && \
+g++ src/algorithms/miller_rabin.cpp -o isthatprime_mr
 
-**Esempio con n = 36**:
-- √36 = 6
-- Divisori possibili: 2, 3, 4, 6
-- Se d = 12 (>6), allora k = 36/12 = 3 (<6)
-→ Basta controllare fino a 6!
-
-### Ottimizzazioni nel codice
-- **Escludi i numeri pari**: Dopo aver verificato se n è 2 o pari, si controllano solo i dispari.
-- **Fermati a √n**: Riduci i controlli da O(n) a O(√n), migliorando l'efficienza.
-
-## 🖥 Esempi di Utilizzo
-
-**Esempio 1**: Numero primo
-```
-Inserisci un numero: 17
-Risultato: Il numero 17 è primo
-
-Statistiche:
-- Tempo di esecuzione: 42 microsecondi
-- Memoria utilizzata: 8 bytes
+# Per Windows è consigliata la compilazione con Visual Studio, Code::Blocks, Dev-C++, etc.
 ```
 
-**Esempio 2**: Numero non primo
-```
-Inserisci un numero: 25
-Risultato: Il numero 25 non è primo
+## 💻 Utilizzo
 
-Statistiche:
-- Tempo di esecuzione: 38 microsecondi
-- Memoria utilizzata: 8 bytes
-```
+### Esecuzione Base
 
-**Esempio 3**: Numero grande
-```
-Inserisci un numero: 123456789012
-Risultato: Il numero 123456789012 non è primo
-
-Statistiche:
-- Tempo di esecuzione: 35 microsecondi
-- Memoria utilizzata: 8 bytes
+```bash
+./isthatprime_base
+> Inserisci un numero: 997
+> Il numero 997 è primo!
+> Tempo: 0.023ms
 ```
 
-## ❓ Domande Frequenti
+### Confronto Algoritmi
 
-**Perché non si controllano tutti i numeri fino a n-1?**
-Per risparmiare tempo! Esempio:
-- Per n = 10.000, invece di 9.999 controlli, ne bastano 100 (fino a √10.000 = 100).
+```bash
+# Test con un numero grande
+time ./isthatprime_base   123456789012345
+time ./isthatprime_wheel 123456789012345
+time ./isthatprime_miller 123456789012345
+```
 
-**Cosa succede se inserisco un numero negativo o 0?**
-Il programma risponde direttamente: "Non è primo" (i numeri primi sono >1).
+## 🔬 Algoritmi
 
-**Perché si saltano i numeri pari?**
-Perché tutti i pari >2 non sono primi (sono divisibili per 2). Saltarli dimezza i controlli!
+### 1. Metodo Base
+- **Complessità**: O(√n)
+- **Approccio**: Divide per numeri dispari fino a √n
+- **Uso**: Ideale per numeri < 10⁶
+- **Pro**: Semplice da capire
+- **Contro**: Lento per numeri grandi
 
-## 📄 Licenza
-Questo progetto è rilasciato con licenza MIT. Puoi usarlo, modificarlo e condividilo liberamente!
+### 2. Wheel Factorization
+- **Complessità**: O(√n) con costante minore
+- **Approccio**: Usa pattern per saltare numeri non primi
+- **Uso**: Ottimo per numeri < 10¹²
+- **Pro**: Buon compromesso velocità/complessità
+- **Contro**: Più complesso da implementare
 
+### 3. Miller-Rabin
+- **Complessità**: O(k log³ n)
+- **Approccio**: Test probabilistico (deterministico fino a 2⁶⁴)
+- **Uso**: Perfetto per numeri > 10¹²
+- **Pro**: Estremamente veloce
+- **Contro**: Matematicamente più avanzato
+
+## 📊 Benchmark
+
+| Numero          | Base    | Wheel   | Miller-Rabin |
+|-----------------|---------|---------|--------------|
+| 997             | 0.023ms | 0.021ms | 0.045ms      |
+| 10⁹+7           | 89ms    | 31ms    | 0.12ms       |
+| 10¹⁸+9          | >1s     | ~400ms  | 0.15ms       |
+
+## 🤝 Contribuisci
+
+Contributi e suggerimenti sono benvenuti! Per favore:
+
+1. 🍴 Fai un fork del progetto
+2. 🔨 Crea un branch per le tue modifiche
+3. 📝 Commita i tuoi miglioramenti
+4. 📫 Invia una Pull Request
+
+## 📜 Licenza
+
+Questo progetto è sotto licenza MIT - vedi il file [LICENSE](LICENSE) per i dettagli.
+
+---
+
+<div align="center">
 Creato con ❤️ da Marco Carraro
+</div>

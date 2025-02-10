@@ -25,7 +25,6 @@ const vector<int> WHEEL = {1, 7, 11, 13, 17, 19, 23, 29};
 
 /**
  * Verifica se un numero è primo usando la wheel factorization
- * Questa implementazione usa una ruota modulo 30 = 2 * 3 * 5
  */
 bool primo(unsigned long long n) {
     // Gestione casi base

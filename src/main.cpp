@@ -69,6 +69,7 @@ bool primo(unsigned long long n) {
     unsigned long long radiceQuadrata = sqrt(n);
     for (unsigned long long divisore = 3; divisore <= radiceQuadrata; divisore += 2) {
         if (n % divisore == 0) return false;
+        if (divisore > n / 2) break;  // Evita che divisore sia superiore a n/2
     }
 
     return true;

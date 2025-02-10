@@ -51,7 +51,7 @@ bool primo(unsigned long long n) {
 }
 
 int main() {
-    cout << Colors::CYAN << "IsThatPrime - Wheel Factorization" << Colors::RESET << endl;
+    cout << Colors::CYAN << "IsThatPrime v1.1 - Wheel Factorization" << Colors::RESET << endl;
     cout << "Questo programma verifica se un numero è primo usando la wheel factorization." << endl;
     cout << "Supporta numeri fino a " << NUMERO_MAX << endl << endl;
 

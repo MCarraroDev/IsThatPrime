@@ -84,7 +84,7 @@ bool primo(unsigned long long n) {
 }
 
 int main() {
-    cout << Colors::CYAN << "IsThatPrime - Miller-Rabin" << Colors::RESET << endl;
+    cout << Colors::CYAN << "IsThatPrime v1.1 - Miller-Rabin" << Colors::RESET << endl;
     cout << "Questo programma verifica se un numero è primo usando il test di Miller-Rabin." << endl;
     cout << "Supporta numeri fino a " << NUMERO_MAX << endl << endl;
 

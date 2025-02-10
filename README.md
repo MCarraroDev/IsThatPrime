@@ -2,7 +2,7 @@
 
 # IsThatPrime
 
-🔢 Un verificatore di numeri primi in C++ con tre diversi algoritmi
+🔢 Un verificatore di numeri primi in C++ con tre diversi algoritmi, gli algoritmi nella directory "src/algoritmi_sec" sono NON sono sviluppati interamente da me, ma tradotti e commentati per un pubblico italiano
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C++](https://img.shields.io/badge/C++-17-blue.svg)](https://isocpp.org/)
